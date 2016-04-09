@@ -26,7 +26,7 @@ public class chopperScript : MonoBehaviour {
 		if (cursorPosition.y < FLING_TOP) {
 			Debug.Log ("mouse up..up...and...awayyyyyy");
 			mouseSpeed = oldMouse - Input.mousePosition;
-			rigidbody2D.AddForce (mouseSpeed * throwSpeed * -1, ForceMode2D.Force);
+			GetComponent<Rigidbody2D>().AddForce (mouseSpeed * throwSpeed * -1, ForceMode2D.Force);
 
 		}
 	}

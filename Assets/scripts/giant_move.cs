@@ -19,7 +19,7 @@ public class giant_move : MonoBehaviour
 	{
 		Debug.Log ("wall: collide:  " + col.gameObject.name);
 		if (col.gameObject.tag == "wall") {
-			rigidbody2D.velocity = new Vector2 ( speed, rigidbody2D.velocity.y);
+			GetComponent<Rigidbody2D>().velocity = new Vector2 ( speed, GetComponent<Rigidbody2D>().velocity.y);
 			speed = -speed;
 		}
 		if (col.gameObject.name == "audry2") {
@@ -57,12 +57,12 @@ public class giant_move : MonoBehaviour
 			//Debug.Log("fill amount " + img.fillAmount);
 			yield return new WaitForSeconds(2);
 			canDropBarrel = true;
-		audio.Play ();
+		GetComponent<AudioSource>().Play ();
 
 	}
 	void FixedUpdate () 
 	{
-		rigidbody2D.velocity = new Vector2 ( speed, rigidbody2D.velocity.y);
+		GetComponent<Rigidbody2D>().velocity = new Vector2 ( speed, GetComponent<Rigidbody2D>().velocity.y);
 		if (transform.position.x >=  player.transform.position.x - 0.1f && 
 		    transform.position.x <=  player.transform.position.x + 0.1f) {
 			Debug.Log("found player");

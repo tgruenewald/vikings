@@ -34,7 +34,7 @@ public class stemScript : MonoBehaviour {
 		if (col.gameObject.tag == "minion") {
 			Debug.Log("dwarf is eating me");
 			transform.Translate(Vector2.up * -1 * 0.2f);
-			audio.Play(); // chopping
+			GetComponent<AudioSource>().Play(); // chopping
 			life--;
 			lifeBarImage.fillAmount = getLifePercent();
 			lifePercentText.text = getLifePercentText();

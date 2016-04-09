@@ -38,7 +38,7 @@ public class Audry2Script : MonoBehaviour {
 
 			transform.parent.GetComponent<Transform>().Translate(Vector2.up * 1 * 0.2f);
 			//transform.Translate(Vector2.up * 1 * 0.2f);
-			audio.Play(); // eating
+			GetComponent<AudioSource>().Play(); // eating
 			if (stemScript.life < 20f)
 			{
 				stemScript.life++;

@@ -80,11 +80,11 @@ public class minion : MonoBehaviour {
 			if (stemTransform.position.x < transform.position.x  ) { // then target is to the left
 	
 				// now move a little towards the target
-				rigidbody2D.velocity = new Vector2 (-speed, rigidbody2D.velocity.y);
+				GetComponent<Rigidbody2D>().velocity = new Vector2 (-speed, GetComponent<Rigidbody2D>().velocity.y);
 			} else {  // then the target is to the right
 
 				// now move a little towards the target
-				rigidbody2D.velocity = new Vector2 (speed, rigidbody2D.velocity.y);
+				GetComponent<Rigidbody2D>().velocity = new Vector2 (speed, GetComponent<Rigidbody2D>().velocity.y);
 			}
 
 			if (distance > prevDistance && count >= 5)
@@ -101,7 +101,7 @@ public class minion : MonoBehaviour {
 		yield return new WaitForSeconds (2);
 		stunned = false;
 		anim.SetBool ("stunned", false);
-		audio.Stop ();
+		GetComponent<AudioSource>().Stop ();
 		gameObject.tag = "minion";
 	}
 			
@@ -114,7 +114,7 @@ public class minion : MonoBehaviour {
 		vikingFlingAudio.Play ();
 		Debug.Log ("mouse up..up...and...awayyyyyy");
 		mouseSpeed = oldMouse - Input.mousePosition;
-		rigidbody2D.AddForce (mouseSpeed * throwSpeed * -1, ForceMode2D.Force);
+		GetComponent<Rigidbody2D>().AddForce (mouseSpeed * throwSpeed * -1, ForceMode2D.Force);
 		StartCoroutine (StunEnding ());
 			//stunned = false;
 		//}
@@ -123,7 +123,7 @@ public class minion : MonoBehaviour {
 	void OnMouseDown(){
 		Debug.Log ("mouse down");
 		gameObject.tag = "stunned_minion";
-		audio.Play ();
+		GetComponent<AudioSource>().Play ();
 		stunned = true;
 		oldMouse = Input.mousePosition;
 		Debug.Log ("anim.name="+anim.name);
