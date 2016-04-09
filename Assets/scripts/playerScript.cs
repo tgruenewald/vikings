@@ -29,10 +29,10 @@ public class playerScript : MonoBehaviour {
 		{mia1 = 1;
 		}
 		if (Input.GetKeyDown (KeyCode.I)) 
-		{mia2 = 1;
+		{mia2 = 2;
 		}
 		if (Input.GetKeyDown (KeyCode.A)) 
-		{mia3 = 1;
+		{mia3 = 0;
 		}
 		if (mia1 + mia2 + mia3 == 3) 
 		{Debug.Log ("hello mia");
